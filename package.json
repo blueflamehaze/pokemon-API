@@ -24,5 +24,8 @@
   "homepage": "https://github.com/blueflamehaze/pokemon-API#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
   }
 }
