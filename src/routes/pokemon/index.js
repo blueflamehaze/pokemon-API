@@ -5,10 +5,12 @@ const express = require("express");
 const pokemonRouter = express.Router();
 
 // Import methods from controller
-const { get } = require("../../controllers/pokemon");
+const { get, getById } = require("../../controllers/pokemon");
 
 // Create the path for get pokemons
 pokemonRouter.get("/", get);
+
+pokemonRouter.get("/:id", getById);
 
 // export module for routes
 module.exports = pokemonRouter;

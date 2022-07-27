@@ -7,6 +7,9 @@ const app = express();
 // Specify the port in which the server will run
 const port = 5000;
 
+// Add middleware to use request.body
+app.use(express.json());
+
 // Import routerApi to manage routes
 const routerApi = require("./routes/main.controller");
 

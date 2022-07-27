@@ -62,7 +62,24 @@ class pokemonServices {
     });
   }
 
-  // 1.2 Add a new pokemon to the list
+  // 1.3 Find a pokemon by id
+  findPokemon(id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Search for id in pokemonList with find function
+        const pokemon = this.pokemonList.find(
+          (pokemon) => pokemon.id === parseInt(id)
+        );
+        if (pokemon) {
+          resolve(pokemon);
+        } else {
+          reject();
+        }
+      }, 2000);
+    });
+  }
+
+  // 1.3 Add a new pokemon to the list
   create(newPokemon) {
     // Simulate a new Promise with an asynchronous operations using
     // setTimeout instead of store the data on the database

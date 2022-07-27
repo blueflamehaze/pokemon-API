@@ -17,5 +17,17 @@ const get = async (request, response) => {
   }
 };
 
+// create get method by id with params
+const getById = async (request, response) => {
+  const { id } = request.params;
+  try {
+    const pokemonFound = await pokemonService.findPokemon(id);
+    response
+      .status(200)
+      .send({ message: `The pokemon ${pokemonFound.name} has been found!` });
+  } catch (error) {
+    response.status(404).send({ message: "The pokemon is not on the list" });
+  }
+};
 // exports controller methods
-module.exports = { get };
+module.exports = { get, getById };
