@@ -44,4 +44,32 @@ class pokemonServices {
       },
     ];
   }
+
+  // Methods for CRUD information to the class
+
+  // 1.1 Add a new pokemon to the list
+  create(newPokemon) {
+    // Simulate a new Promise with an asynchronous operations using
+    // setTimeout instead of store the data on the database
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Add the new pokemon to the existing list with a push method
+        this.pokemonList.push(newPokemon);
+        if (!error) {
+          console.log("Se resuelve la promesa");
+          resolve();
+        } else {
+          document.write(
+            "Something went wrong! Please chech the data and try again."
+          );
+          console.log(
+            "Something went wrong! Please chech the data and try again"
+          );
+        }
+      }, 2000);
+    });
+  }
 }
+
+// Exports class
+module.exports = pokemonServices;
