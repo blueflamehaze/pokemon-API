@@ -12,10 +12,7 @@ const routerApi = require("./routes/main.controller");
 
 // Add a root endpoint
 app.get("/", (request, response) => {
-  document.write(
-    "Bienvenido a la API Pokemon. Usa alguna ruta valida para continaur"
-  );
-  console.log("Bienvenido a la API pokemon");
+  response.send("Bienvenido a la API pokemon");
 });
 
 app.listen(port, () => {

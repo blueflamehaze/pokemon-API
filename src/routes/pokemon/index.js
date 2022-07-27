@@ -8,7 +8,7 @@ const pokemonRouter = express.Router();
 const { get } = require("../../controllers/pokemon");
 
 // Create the path for get pokemons
-pokemonRouter.get("/pokemons", get);
+pokemonRouter.get("/", get);
 
 // export module for routes
 module.exports = pokemonRouter;

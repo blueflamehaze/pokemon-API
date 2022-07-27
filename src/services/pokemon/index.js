@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 // Create class for store pokemon info
 class pokemonServices {
   // The class has to have a constructor that store the array
@@ -51,20 +53,11 @@ class pokemonServices {
   findAll() {
     // Simulate a new Promise with an asynchronous operations using
     // setTimeout instead of store the data on the database
+    //  return this.pokemonList;
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // return all elements in an array
-        if (this.pokemonList) {
-          for (const value of this.pokemonList.values()) {
-            document.write(value);
-          }
-        }
-        if (!error) {
-          console.log("Se resuelve la promesa");
-          resolve(this.pokemonList);
-        } else {
-          document.write("Something went wrong! Please try again later.");
-        }
+        resolve(this.pokemonList);
       }, 2000);
     });
   }
@@ -81,7 +74,7 @@ class pokemonServices {
           console.log("Se resuelve la promesa");
           resolve();
         } else {
-          document.write(
+          response.send(
             "Something went wrong! Please chech the data and try again."
           );
         }
