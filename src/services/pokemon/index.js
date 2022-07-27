@@ -62,7 +62,7 @@ class pokemonServices {
     });
   }
 
-  // 1.3 Find a pokemon by id
+  // 1.2 Find a pokemon by id
   findPokemon(id) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -87,14 +87,7 @@ class pokemonServices {
       setTimeout(() => {
         // Add the new pokemon to the existing list with a push method
         this.pokemonList.push(newPokemon);
-        if (!error) {
-          console.log("Se resuelve la promesa");
-          resolve();
-        } else {
-          response.send(
-            "Something went wrong! Please chech the data and try again."
-          );
-        }
+        resolve();
       }, 2000);
     });
   }

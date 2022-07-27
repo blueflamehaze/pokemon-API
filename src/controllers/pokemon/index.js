@@ -29,5 +29,18 @@ const getById = async (request, response) => {
     response.status(404).send({ message: "The pokemon is not on the list" });
   }
 };
+
+// create method for add a new pokemon
+const create = async (request, response) => {
+  const newPokemon = request.body;
+  try {
+    await pokemonService.create(newPokemon);
+    response
+      .status(201)
+      .send({ message: `The pokemon ${newPokemon.name} has been added!` });
+  } catch (error) {
+    response.status(500).send({ message: "Server error! Please try later." });
+  }
+};
 // exports controller methods
-module.exports = { get, getById };
+module.exports = { get, getById, create };
