@@ -47,7 +47,29 @@ class pokemonServices {
 
   // Methods for CRUD information to the class
 
-  // 1.1 Add a new pokemon to the list
+  //1.1 Find all pokemons in the array
+  findAll() {
+    // Simulate a new Promise with an asynchronous operations using
+    // setTimeout instead of store the data on the database
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // return all elements in an array
+        if (this.pokemonList) {
+          for (const value of this.pokemonList.values()) {
+            document.write(value);
+          }
+        }
+        if (!error) {
+          console.log("Se resuelve la promesa");
+          resolve(this.pokemonList);
+        } else {
+          document.write("Something went wrong! Please try again later.");
+        }
+      }, 2000);
+    });
+  }
+
+  // 1.2 Add a new pokemon to the list
   create(newPokemon) {
     // Simulate a new Promise with an asynchronous operations using
     // setTimeout instead of store the data on the database
@@ -61,9 +83,6 @@ class pokemonServices {
         } else {
           document.write(
             "Something went wrong! Please chech the data and try again."
-          );
-          console.log(
-            "Something went wrong! Please chech the data and try again"
           );
         }
       }, 2000);
