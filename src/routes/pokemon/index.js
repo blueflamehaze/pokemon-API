@@ -10,6 +10,7 @@ const {
   getById,
   create,
   partialEdition,
+  completeEdition,
 } = require("../../controllers/pokemon");
 
 // Create the path for get pokemons
@@ -23,6 +24,9 @@ pokemonRouter.post("/", create);
 
 // Route to partial edit a pokemon
 pokemonRouter.patch("/:id", partialEdition);
+
+// Route to complete edit a pokemon
+pokemonRouter.put("/:id", completeEdition);
 
 // export module for routes
 module.exports = pokemonRouter;

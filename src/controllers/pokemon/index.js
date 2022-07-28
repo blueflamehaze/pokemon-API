@@ -50,10 +50,26 @@ const partialEdition = async (request, response) => {
   const { id } = request.params;
   try {
     await pokemonService.pokemonPartialEdition(id, body);
-    response.status(200).send(`The pokemon  has been edited!`);
+    response
+      .status(200)
+      .send({ message: `The pokemon has been partial edited!` });
+  } catch (error) {
+    response.status(404).send({ message: "The pokemon is not on the list" });
+  }
+};
+
+// create a method for complete edition
+const completeEdition = async (request, response) => {
+  const body = request.body;
+  const { id } = request.params;
+  try {
+    await pokemonService.pokemonCompleteEdition(id, body);
+    response
+      .status(200)
+      .send({ message: `The pokemon has been complete edited!` });
   } catch (error) {
     response.status(404).send({ message: "The pokemon is not on the list" });
   }
 };
 // exports controller methods
-module.exports = { get, getById, create, partialEdition };
+module.exports = { get, getById, create, partialEdition, completeEdition };

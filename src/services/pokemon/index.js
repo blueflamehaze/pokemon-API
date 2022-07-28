@@ -101,7 +101,7 @@ class pokemonServices {
         const isApokemon = this.pokemonList.findIndex(
           (pokemon) => pokemon.id === parseInt(id)
         );
-        if (isApokemon !== 1) {
+        if (isApokemon !== -1) {
           // Create a copy of the array to store pokemon list
           let pokemonListCopy = [...this.pokemonList];
           // Store the pokemon info in the positiion isApokemon
@@ -109,6 +109,28 @@ class pokemonServices {
           // Add new info to the copy pokemon list
           pokemonListCopy[isApokemon] = { ...newPokemonInfo, ...body };
           // make the copy array equeal to the pokemon list
+          this.pokemonList = [...pokemonListCopy];
+          resolve();
+        } else {
+          reject();
+        }
+      }, 2000);
+    });
+  }
+
+  // 1.5 Complete edition of a pokemon
+  pokemonCompleteEdition(id, body) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const isApokemon = this.pokemonList.findIndex(
+          (pokemon) => pokemon.id === parseInt(id)
+        );
+        if (isApokemon !== -1) {
+          // Make a copy of the array
+          let pokemonListCopy = [...this.pokemonList];
+          // Asign the new body at the pokemonList Copy and store the same id
+          pokemonListCopy[isApokemon] = { id, ...body };
+          // Asing the array copy to the original array
           this.pokemonList = [...pokemonListCopy];
           resolve();
         } else {
