@@ -1,0 +1,31 @@
+{
+  "name": "pokemon-api",
+  "version": "1.0.0",
+  "description": "Server in express with pokemon api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blueflamehaze/pokemon-API.git"
+  },
+  "keywords": [
+    "pokemon",
+    "api"
+  ],
+  "author": "Gabriela Salazar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blueflamehaze/pokemon-API/issues"
+  },
+  "homepage": "https://github.com/blueflamehaze/pokemon-API#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
