@@ -5,7 +5,7 @@ const express = require("express");
 // Asign express function to app
 const app = express();
 // Specify the port in which the server will run
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // Add middleware to use request.body
 app.use(express.json());
