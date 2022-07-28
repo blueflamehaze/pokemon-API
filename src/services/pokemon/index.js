@@ -139,6 +139,28 @@ class pokemonServices {
       }, 2000);
     });
   }
+
+  // 1.6 Delete a pokemon
+  delete(id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const isApokemon = this.pokemonList.findIndex(
+          (pokemon) => pokemon.id === parseInt(id)
+        );
+        if (isApokemon !== -1) {
+          // Create a copy of the pokemon list array
+          const pokemonListCopy = [...this.pokemonList];
+          // Use splice method for delete the element (id) in the pokemonListCopy
+          pokemonListCopy.splice(isApokemon, 1);
+          // Asign the pokemonListCopy to the original array
+          this.pokemonList = [...pokemonListCopy];
+          resolve();
+        } else {
+          reject();
+        }
+      }, 2000);
+    });
+  }
 }
 
 // Exports class

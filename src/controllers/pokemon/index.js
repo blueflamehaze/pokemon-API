@@ -71,5 +71,26 @@ const completeEdition = async (request, response) => {
     response.status(404).send({ message: "The pokemon is not on the list" });
   }
 };
+
+//Create a method for delete a pokemon
+const deletePokemon = async (request, response) => {
+  const { id } = request.params;
+  try {
+    await pokemonService.delete(id);
+    response
+      .status(200)
+      .send({ message: "The pokemon was deleted successfully" });
+  } catch (error) {
+    response.status(404).send({ message: "The pokemon is not on the list" });
+  }
+};
+
 // exports controller methods
-module.exports = { get, getById, create, partialEdition, completeEdition };
+module.exports = {
+  get,
+  getById,
+  create,
+  partialEdition,
+  completeEdition,
+  deletePokemon,
+};
