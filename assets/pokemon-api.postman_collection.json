@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "dd1f1680-7b15-49cc-b1c1-c46dd79c5271",
+		"name": "pokemon-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22118732"
+	},
+	"item": [
+		{
+			"name": "getRoot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/pokemons/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pokemons",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/pokemons/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pokemons",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 5,\r\n        \"name\": \"caterpie\",\r\n        \"weight\": 29,\r\n        \"height\": 3,\r\n        \"species\": \"caterpie\",\r\n        \"types\": [\r\n            \"bug\"\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pokemons",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pokemons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "partialEdit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"weight\": 90,\r\n    \"height\": 8,\r\n    \"species\": \"Charmander 2.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pokemons/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pokemons",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "completeEdit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ivysaur\",\r\n    \"weight\": 140,\r\n    \"height\": 15,\r\n    \"species\": \"Ivysaur\",\r\n    \"types\": [\r\n        \"Grass\",\r\n        \"Posion\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pokemons/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pokemons",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/pokemons/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pokemons",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
