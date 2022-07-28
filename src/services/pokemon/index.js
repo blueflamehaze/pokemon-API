@@ -91,6 +91,32 @@ class pokemonServices {
       }, 2000);
     });
   }
+
+  // 1.4 Partial edition of a pokemon.
+  // @params: id of the pokemon and body we want to update
+  pokemonPartialEdition(id, body) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Search if the id exist on the array
+        const isApokemon = this.pokemonList.findIndex(
+          (pokemon) => pokemon.id === parseInt(id)
+        );
+        if (isApokemon !== 1) {
+          // Create a copy of the array to store pokemon list
+          let pokemonListCopy = [...this.pokemonList];
+          // Store the pokemon info in the positiion isApokemon
+          const newPokemonInfo = this.pokemonList[isApokemon];
+          // Add new info to the copy pokemon list
+          pokemonListCopy[isApokemon] = { ...newPokemonInfo, ...body };
+          // make the copy array equeal to the pokemon list
+          this.pokemonList = [...pokemonListCopy];
+          resolve();
+        } else {
+          reject();
+        }
+      }, 2000);
+    });
+  }
 }
 
 // Exports class

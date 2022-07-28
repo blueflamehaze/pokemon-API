@@ -1,4 +1,5 @@
 // Import pokemonServices from services structure
+const { response } = require("express");
 const pokemonServices = require("../../services/pokemon/index");
 
 // create a pokemonService using pokemonServices class
@@ -42,5 +43,17 @@ const create = async (request, response) => {
     response.status(500).send({ message: "Server error! Please try later." });
   }
 };
+
+// create a method for partial edition
+const partialEdition = async (request, response) => {
+  const body = request.body;
+  const { id } = request.params;
+  try {
+    await pokemonService.pokemonPartialEdition(id, body);
+    response.status(200).send(`The pokemon  has been edited!`);
+  } catch (error) {
+    response.status(404).send({ message: "The pokemon is not on the list" });
+  }
+};
 // exports controller methods
-module.exports = { get, getById, create };
+module.exports = { get, getById, create, partialEdition };

@@ -5,7 +5,12 @@ const express = require("express");
 const pokemonRouter = express.Router();
 
 // Import methods from controller
-const { get, getById, create } = require("../../controllers/pokemon");
+const {
+  get,
+  getById,
+  create,
+  partialEdition,
+} = require("../../controllers/pokemon");
 
 // Create the path for get pokemons
 pokemonRouter.get("/", get);
@@ -15,6 +20,9 @@ pokemonRouter.get("/:id", getById);
 
 // Route to create a new pokemon, add to the pokemon list
 pokemonRouter.post("/", create);
+
+// Route to partial edit a pokemon
+pokemonRouter.patch("/:id", partialEdition);
 
 // export module for routes
 module.exports = pokemonRouter;
